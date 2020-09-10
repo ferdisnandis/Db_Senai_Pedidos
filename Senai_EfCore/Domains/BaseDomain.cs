@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace Senai_EfCore.Domains
 {
-    public class Pedido : BaseDomain
+    public abstract class BaseDomain
     {
-        public string Status { get; set; }
-        public DateTime OrderDate { get; set; }
+        [Key]
+        public Guid Id { get; set; }
+
+        public BaseDomain()
+        {
+            Id = Guid.NewGuid();
+        }
     }
 }
