@@ -10,7 +10,7 @@ namespace Senai_EfCore.Interfaces
     {
         List<Produto> Listar();
         List<Produto> BuscarPorNome(string nome);
-        IProdutoRepository BuscarPorId(Guid id);
+        Produto BuscarPorId(Guid id);
         void Adicionar(Produto produto);
         void Editar(Produto produto);
         void Remover(Guid id);

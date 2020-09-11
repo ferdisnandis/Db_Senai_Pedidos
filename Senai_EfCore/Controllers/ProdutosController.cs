@@ -14,7 +14,7 @@ namespace Senai_EfCore.Controllers
     [ApiController]
     public class ProdutosController : ControllerBase
     {
-        private IProdutoRepository _produtoRepository;
+        private readonly IProdutoRepository _produtoRepository;
 
         public ProdutosController()
         {
@@ -22,34 +22,105 @@ namespace Senai_EfCore.Controllers
         }
 
         [HttpGet]
-        public List<Produto> Get()
+        public IActionResult Get()
         {
-            return _produtoRepository.Listar();
+            try
+            {
+                //Listar os produtos no repositório
+                var produtos = _produtoRepository.Listar();
+
+                //verifica se existe produtos, caso não tenha retorna
+                //NoContent - Sem Conteúdo
+                    if (produtos.Count == 0)
+                    return NoContent();
+
+                //Caso exista retorna OK e produtos
+                return Ok(produtos);
+            }
+            catch(Exception ex)
+            {
+                //Caso ocorra algum erro retorna BadRequest e a mensagem de erro
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("{id}")]
-        public Produto Get(Guid id)
+        public IActionResult Get(Guid id)
         {
-            return (Produto)_produtoRepository.BuscarPorId(id);
+            try
+            {
+                //Buscar o produto no repositório
+                Produto produto = _produtoRepository.BuscarPorId(id);
+
+                //Verifica se o produto existe
+                //Caso produto não exista retorna NotFound - Não encontrado
+                if (produto == null)
+                    return NotFound();
+
+                //Caso o produto exista retorna
+                //Ok e os dados do produto
+                return Ok(produto);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost]
-        public void Post(Produto produto)
+        public IActionResult Post(Produto produto)
         {
-            _produtoRepository.Adicionar(produto);
+            try
+            {
+                //Adiciona produto
+                _produtoRepository.Adicionar(produto);
+
+                //Retorna ok com os dados do produto
+                return Ok(produto);
+            }
+            catch(Exception ex)
+            {
+                //Caso ocorra um erro retorna BadRequest com a mensagem
+                //deu erro
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPut("{id}")]
-        public void Put(Guid id, Produto produto)
+        public IActionResult Put(Guid id, Produto produto)
         {
-            produto.Id = id;
-            _produtoRepository.Editar(produto);
+            try
+            {
+                var produtoTemp = _produtoRepository.BuscarPorId(id);
+                if (produtoTemp == null)
+                    return NotFound();
+
+                produto.Id = id;
+                _produtoRepository.Editar(produto);
+                 
+                return Ok(produto);
+            }
+            catch(Exception ex)
+            {
+                //Caso ocorra um erro retorna BadRequest com a mensagem
+                //de erro
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpDelete("{id}")]
-        public void Delete(Guid id)
+        public IActionResult Delete(Guid id)
         {
-            _produtoRepository.Remover(id);
+            try
+            {
+                _produtoRepository.Remover(id);
+
+                return Ok(id);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

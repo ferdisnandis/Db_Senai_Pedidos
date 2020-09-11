@@ -3,6 +3,7 @@ using Senai_EfCore.Domains;
 using Senai_EfCore.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -32,6 +33,7 @@ namespace Senai_EfCore.Repositories
             }
             catch(Exception ex)
             {
+                //Gravar no log do banco de dados
                 throw new Exception(ex.Message);
             }
         }
@@ -40,7 +42,7 @@ namespace Senai_EfCore.Repositories
         /// Buscar produtos pelo nome
         /// </summary>
         /// <param name="nome">Nome do produto</param>
-        /// <returns></returns>
+        /// <returns>Retorna um produto</returns>
         public List<Produto> BuscarPorNome(string nome)
         {
             try
@@ -100,10 +102,12 @@ namespace Senai_EfCore.Repositories
             {
                 //Buscar produto pelo Id
                 Produto produtoTemp = BuscarPorId(produto.Id);
+
                 //Verificar se o produto existe
                 //Caso não exista gera uma exception
-                if (produtoTemp == null)
-                    throw new Exception("Produto não encontrado");
+                //if (produtoTemp == null)
+                //  throw new Exception("Produto não encontrado");
+
                 //Caso exista altera sua propriedade
                 produtoTemp.Nome = produto.Nome;
                 produtoTemp.Preco = produto.Preco;
@@ -115,6 +119,7 @@ namespace Senai_EfCore.Repositories
             }
             catch (Exception ex)
             {
+                //TODO : Cadastrar Tabela LogErro  mensagem erro com Tag Geral
                 throw new Exception(ex.Message);
             }
         }
@@ -142,18 +147,9 @@ namespace Senai_EfCore.Repositories
             }
             catch(Exception ex)
             {
+                //TODO : Incluir erro no log do banco de dados
                 throw new Exception(ex.Message);
             }
-        }
-
-        List<Produto> IProdutoRepository.BuscarPorNome(string nome)
-        {
-            throw new NotImplementedException();
-        }
-
-        IProdutoRepository IProdutoRepository.BuscarPorId(Guid id)
-        {
-            throw new NotImplementedException();
         }
         #endregion
     }
