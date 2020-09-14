@@ -35,12 +35,19 @@ namespace Senai_EfCore.Controllers
                     return NoContent();
 
                 //Caso exista retorna OK e produtos
-                return Ok(produtos);
+                return Ok(new
+                {
+                    totalCount = produtos.Count,
+                    data = produtos
+                });
             }
-            catch(Exception ex)
+            catch(Exception)
             {
-                //Caso ocorra algum erro retorna BadRequest e a mensagem de erro
-                return BadRequest(ex.Message);
+                // TODO : Cadastrar mensagem de erro no dominio logERRO
+                return BadRequest(new {
+                    statuscode = 400,
+                    error = "Ocorreu um erro no endpoint Get/produtos, envie um email para email@email.com informando"
+                });
             }
         }
 
@@ -95,7 +102,6 @@ namespace Senai_EfCore.Controllers
                 if (produtoTemp == null)
                     return NotFound();
 
-                produto.Id = id;
                 _produtoRepository.Editar(produto);
                  
                 return Ok(produto);
@@ -113,6 +119,11 @@ namespace Senai_EfCore.Controllers
         {
             try
             {
+                var produto = _produtoRepository.BuscarPorId(id);
+
+                if (produto == null)
+                    return NotFound();
+
                 _produtoRepository.Remover(id);
 
                 return Ok(id);

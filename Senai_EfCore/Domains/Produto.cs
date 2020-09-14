@@ -14,5 +14,6 @@ namespace Senai_EfCore.Domains
         public string Nome { get; set; }
         public float Preco { get; set; }
 
+
     }
 }

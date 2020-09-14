@@ -54,8 +54,6 @@ C:\Users\fernanda1234\Desktop\API_Senai\API_EfCore\Senai_EfCore\Senai_EfCore\bin
 C:\Users\fernanda1234\Desktop\API_Senai\API_EfCore\Senai_EfCore\Senai_EfCore\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\fernanda1234\Desktop\API_Senai\API_EfCore\Senai_EfCore\Senai_EfCore\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\fernanda1234\Desktop\API_Senai\API_EfCore\Senai_EfCore\Senai_EfCore\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\fernanda1234\Desktop\API_Senai\API_EfCore\Senai_EfCore\Senai_EfCore\obj\Debug\netcoreapp3.1\Senai_EfCore.csproj.CoreCompileInputs.cache
-C:\Users\fernanda1234\Desktop\API_Senai\API_EfCore\Senai_EfCore\Senai_EfCore\obj\Debug\netcoreapp3.1\Senai_EfCore.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\fernanda1234\Desktop\API_Senai\API_EfCore\Senai_EfCore\Senai_EfCore\obj\Debug\netcoreapp3.1\Senai_EfCore.dll
 C:\Users\fernanda1234\Desktop\API_Senai\API_EfCore\Senai_EfCore\Senai_EfCore\obj\Debug\netcoreapp3.1\Senai_EfCore.pdb
 C:\Users\fernanda1234\Desktop\API_Senai\API_EfCore\Senai_EfCore\Senai_EfCore\obj\Debug\netcoreapp3.1\Senai_EfCore.genruntimeconfig.cache
