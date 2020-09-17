@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <Folder Include="Scripts\" />
+    <Folder Include="wwwRoot\Upload\Imagens\" />
   </ItemGroup>
 
 

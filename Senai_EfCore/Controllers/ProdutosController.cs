@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Senai_EfCore.Domains;
 using Senai_EfCore.Interfaces;
 using Senai_EfCore.Repositories;
+using Senai_EfCore.Utils;
 
 namespace Senai_EfCore.Controllers
 {
@@ -74,17 +76,24 @@ namespace Senai_EfCore.Controllers
             }
         }
 
+        //From form - Recebe os dados do produto via From-Data
         [HttpPost]
-        public IActionResult Post(Produto produto)
+        public IActionResult Post([FromForm]Produto produto)
         {
             try
             {
+                //Verifico se foi enviado um arquivo com a imagem
+                if(produto.Imagem != null)
+                {
+                    var urlImagem = Upload.Local(produto.Imagem);
+                    produto.UrlImagem = urlImagem;
+                }
                 //Adiciona produto
                 _produtoRepository.Adicionar(produto);
 
                 //Retorna ok com os dados do produto
                 return Ok(produto);
-            }
+            } 
             catch(Exception ex)
             {
                 //Caso ocorra um erro retorna BadRequest com a mensagem

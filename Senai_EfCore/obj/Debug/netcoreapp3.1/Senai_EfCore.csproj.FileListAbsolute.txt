@@ -57,3 +57,8 @@ C:\Users\fernanda1234\Desktop\API_Senai\API_EfCore\Senai_EfCore\Senai_EfCore\bin
 C:\Users\fernanda1234\Desktop\API_Senai\API_EfCore\Senai_EfCore\Senai_EfCore\obj\Debug\netcoreapp3.1\Senai_EfCore.dll
 C:\Users\fernanda1234\Desktop\API_Senai\API_EfCore\Senai_EfCore\Senai_EfCore\obj\Debug\netcoreapp3.1\Senai_EfCore.pdb
 C:\Users\fernanda1234\Desktop\API_Senai\API_EfCore\Senai_EfCore\Senai_EfCore\obj\Debug\netcoreapp3.1\Senai_EfCore.genruntimeconfig.cache
+C:\Users\fernanda1234\Desktop\API_Senai\API_EfCore\Senai_EfCore\Senai_EfCore\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\fernanda1234\Desktop\API_Senai\API_EfCore\Senai_EfCore\Senai_EfCore\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\fernanda1234\Desktop\API_Senai\API_EfCore\Senai_EfCore\Senai_EfCore\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\fernanda1234\Desktop\API_Senai\API_EfCore\Senai_EfCore\Senai_EfCore\obj\Debug\netcoreapp3.1\Senai_EfCore.csproj.CoreCompileInputs.cache
+C:\Users\fernanda1234\Desktop\API_Senai\API_EfCore\Senai_EfCore\Senai_EfCore\obj\Debug\netcoreapp3.1\Senai_EfCore.MvcApplicationPartsAssemblyInfo.cache
