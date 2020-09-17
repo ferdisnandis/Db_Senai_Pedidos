@@ -43,14 +43,12 @@ namespace Senai_EfCore.Controllers
                     data = produtos
                 });
             }
-            catch(Exception)
+            catch(Exception ex)
             {
-                // TODO : Cadastrar mensagem de erro no dominio logERRO
-                return BadRequest(new {
-                    statuscode = 400,
-                    error = "Ocorreu um erro no endpoint Get/produtos, envie um email para email@email.com informando"
-                });
-            }
+                //Caso ocorra algum erro retorna BadRequest e a mensagem de erro
+                // TODO : Gravar mensagem de erro log e retornar BadRequest
+                return BadRequest(ex.Message);
+             };
         }
 
         [HttpGet("{id}")]
@@ -72,6 +70,7 @@ namespace Senai_EfCore.Controllers
             }
             catch(Exception ex)
             {
+                //Caso ocorra um erro retorna BadRequest com a mensagem de erro
                 return BadRequest(ex.Message);
             }
         }
