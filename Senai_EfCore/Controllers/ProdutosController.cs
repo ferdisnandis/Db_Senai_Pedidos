@@ -23,6 +23,10 @@ namespace Senai_EfCore.Controllers
             _produtoRepository = new ProdutoRepository();
         }
 
+        /// <summary>
+        /// Ler todos os produtos cadastrados
+        /// </summary>
+        /// <returns>Lista de produtos</returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -48,9 +52,14 @@ namespace Senai_EfCore.Controllers
                 //Caso ocorra algum erro retorna BadRequest e a mensagem de erro
                 // TODO : Gravar mensagem de erro log e retornar BadRequest
                 return BadRequest(ex.Message);
-             };
+            };
         }
 
+        /// <summary>
+        /// Buscar produto por ID
+        /// </summary>
+        /// <param name="id">Id do produto procurado</param>
+        /// <returns>Produto encontrado</returns>
         [HttpGet("{id}")]
         public IActionResult Get(Guid id)
         {
@@ -76,6 +85,11 @@ namespace Senai_EfCore.Controllers
         }
 
         //From form - Recebe os dados do produto via From-Data
+        /// <summary>
+        /// Cadastrar um produto
+        /// </summary>
+        /// <param name="produto">Objeto completo de um produto</param>
+        /// <returns>Produto cadastrado</returns>
         [HttpPost]
         public IActionResult Post([FromForm]Produto produto)
         {
@@ -101,6 +115,12 @@ namespace Senai_EfCore.Controllers
             }
         }
 
+        /// <summary>
+        /// Alterar um produto
+        /// </summary>
+        /// <param name="id">Id do Produto </param>
+        /// <param name="produto">Objeto alterado</param>
+        /// <returns>Produto alterado</returns>
         [HttpPut("{id}")]
         public IActionResult Put(Guid id, Produto produto)
         {
@@ -122,6 +142,11 @@ namespace Senai_EfCore.Controllers
             }
         }
 
+        /// <summary>
+        /// Excluir produto do sistema
+        /// </summary>
+        /// <param name="id">ID do produto para ser excluído</param>
+        /// <returns>ID do produto excluído</returns>
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {
